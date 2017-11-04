@@ -328,7 +328,8 @@ a {
       @media (max-width: 47.99em) {
         .poll-grid .poll-title-grid:after {
           top: 32%;
-          right: 1.25em; } }
+          right: 0.3em;
+          font-size: 0.8em; } }
 
 .poll-headline {
   font-family: "Roboto", sans-serif;
