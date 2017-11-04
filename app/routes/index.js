@@ -70,8 +70,8 @@ module.exports = function (app, passport) {
 		//voted for poll
 		
 		const voteId = req.body.id;
-		//const userIp = req.headers['x-forwarded-for'].split(',').shift();
-		const userIp = '34.32.222.12';
+		const userIp = req.headers['x-forwarded-for'].split(',').shift();
+		//const userIp = '34.32.222.12';
 		var user = '';
 		if(req.isAuthenticated()) {
 			user = req.user.github.username;
