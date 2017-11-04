@@ -1,0 +1,36 @@
+{
+  "name": "voting-app-fcc",
+  "version": "1.0.1",
+  "description": "The voting app for everyone.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowleo208/voting-app"
+  },
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "full stack",
+    "Express",
+    "Node",
+    "javascript",
+    "voting app"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Yuu",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chartjs": "^0.3.24",
+    "connect-mongo": "^2.0.0",
+    "dotenv": "^1.2.0",
+    "express": "^4.12.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.11.3",
+    "mongoose": "^4.1.0",
+    "passport": "^0.3.0",
+    "passport-github": "^1.0.0"
+  }
+}

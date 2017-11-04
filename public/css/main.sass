@@ -1,0 +1,463 @@
+$browser-context: 16
+// Default font size (px)
+
+@function em($pixels, $context: $browser-context)
+	@return #{$pixels/$context}em
+
+@import 'rem'
+@import 'mq'
+
+$theme-red: #ff0024
+$theme-grey: #322d27
+$theme-lightgrey: rgba(0,0,0,0.1)
+$max-width: em(800)
+$banner-height: em(400)
+
+html, body
+	width: 100%
+	height: 100%
+	box-sizing: border-box
+
+body
+	//position: relative
+	font-family: 'Roboto', sans-serif
+	font-size: 1em
+	margin: 0
+	padding: 0
+	color: black
+	overflow: auto
+
+#panel
+	position: relative
+	display: flex
+	justify-content: flex-end
+	flex-flow: column
+	min-height: calc(100vh - 90px)
+	@include mq($until: tablet)
+		position: absolute
+		top: 0
+		right: 0
+		transition: 0.5s
+
+a
+	color: $theme-grey
+	text-decoration: none
+	&:hover, &:active
+		color: $theme-red
+		text-decoration: none
+
+.hidden
+	visibility: hidden
+	width: 0
+	height: 0
+
+.youvote-text
+	color: #322d27
+	/*greyblack*/
+
+.youvote-text-red
+	color: #ff0024
+	/*red*/
+
+.app-btn
+	background-color: $theme-grey
+	color: #FFF
+	width: auto
+	text-align: center
+	margin-bottom: em(10)
+	padding: em(5) em(20)
+	transition: 300ms
+	box-shadow: none
+	p
+		margin: 0
+	&:hover
+		background: $theme-lightgrey
+		color: $theme-grey
+		cursor: pointer
+		box-shadow: none
+	&:active
+		transform: translateY(2px)
+		box-shadow: none
+	&:visited
+		box-shadow: none
+#top
+	border-radius: em(5)
+	display: flex
+	justify-content: center
+	flex-flow: row wrap
+	opacity: 0
+	transition: opacity 400ms
+	p
+		font-size: em(14)
+		margin-bottom: 0
+		text-align: center
+	
+.fade-opacity
+	opacity: 1 !important
+	
+//
+// Background image grid
+//
+
+
+.bg-grid-poll
+	background: url('/public/img/chris-lawton-172561.jpg') no-repeat
+	background-size: cover
+	background-position: center
+	min-height: $banner-height
+	margin-left: -15px
+	margin-right: -15px
+	@include mq($until: tablet)
+		background: url('/public/img/chris-lawton-172561_768.jpg') no-repeat
+
+.bg-grid-createpoll
+	@extend .bg-grid-poll
+	background: url('/public/img/jeff-sheldon-3224.jpg') no-repeat
+	background-size: cover
+	background-position: center
+	@include mq($until: tablet)
+		background: url('/public/img/jeff-sheldon-3224_768.jpg') no-repeat
+		background-position: 70%
+	
+.bg-grid-mypoll
+	@extend .bg-grid-poll
+	background: url('/public/img/chuttersnap-413007.jpg') no-repeat
+	background-size: cover
+	background-position: center
+	@include mq($until: tablet)
+		background: url('/public/img/chuttersnap-413007_768.jpg') no-repeat
+//
+// Menu
+//
+
+#menu
+	display: flex
+	@include mq($until: tablet)
+		display: none !important
+
+.brand-logo
+	margin: em(15) 0
+
+#welcome-text
+	font-family: 'Source Sans Pro', sans-serif
+	font-weight: 500
+	display: inline-block
+	margin: 0
+	padding: 0
+
+.nav-list
+	display: inline-flex
+	flex-flow: row
+	justify-content: flex-start
+	margin: 0
+	padding: 0
+	@include mq($until: tablet)
+		width: auto
+		height: 100%
+		position: relative
+		display: block
+
+	ul
+		list-type-style: none
+	li
+		display: inline-block
+		margin: em(5) em(15)
+		@include mq($until: tablet)
+			display: block
+			list-style: none
+			padding: em(5) 0
+
+#toggle-btn
+	display: none
+	@include mq($until: tablet)
+		position: fixed
+		display: block
+		top: em(10)
+		left: em(10)
+		font-size: em(20)
+		background: rgba(0,0,0,0.8)
+		border-radius: em(10)
+		z-index: 999
+		color: white
+		cursor: pointer
+		transition: 0.5s
+		&:hover
+			background: rgba(0,0,0,0.5)
+
+#menu-mobile
+	display: flex
+	flex-flow: row
+	justify-content: center
+	align-items: center
+	padding: 0 em(10)
+	transition: 300ms
+	width: 100%
+	box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1)
+	@include mq($until: tablet)
+		display: none
+		width: 200px
+		height: 100%
+		position: fixed
+		top: 0
+		left: 0
+		padding: em(20)
+
+//
+// Home
+//
+
+#banner
+	position: relative
+	min-height: $banner-height
+	margin-left: -15px
+	margin-right: -15px
+	height: 100%
+	text-align: center
+	background-color: #ffce4f
+	color: $theme-grey
+	font-family: 'Montserrat', sans-serif
+	transition: 1.5s
+	
+.highlight-title
+	font-family: 'Montserrat', sans-serif
+	font-weight: 700
+	font-size: em(48)
+
+.highlight-subtitle
+	font-family: 'Source Sans Pro', sans-serif
+	font-size: em(24)
+	text-shadow: 2px 2px 15px 1px rgba(0,0,0,0.1)
+
+.highlight-button
+	position: absolute
+	right: 10%
+	bottom: 20%
+	
+.badge-tag
+	position: relative
+	background: red
+	height: em(50)
+	width: em(150)
+	border-radius: 0
+	margin-bottom: 1rem
+	
+	&:before, &:after
+		content: ''
+		position: absolute
+		border-bottom: em(10) solid white
+		border-left: em(75) solid transparent
+		border-right: em(75) solid transparent
+		top: em(40)
+		left: 0px
+
+.latest-title	
+	color: white
+	font-family: 'Source Sans Pro', sans-serif
+	font-size: em(20)
+	text-align: center
+	margin-top: 0.3em
+	margin-bottom: 0em
+	font-weight: bold
+
+#latest
+	@extend #all-poll
+
+
+
+//
+// All polls
+//
+
+#all-poll
+	position: relative
+	width: 80%
+	display: block
+	margin: 0 auto
+	@include mq($until: tablet)
+		width: 100%
+
+.poll-grid
+	margin: em(8)
+	.poll-title-grid
+		position: relative
+		display: block
+		width: 100%
+		height: 100%
+		padding: em(10) em(5)
+		border-radius: em(5)
+		background: rgba(236,236,236,0.2)
+		text-align: center
+		transition: 0.5s
+		&:hover, &:active, &:hover .vote-btn
+			background: $theme-grey
+			color: white
+		&:visited
+			color: $theme-grey
+		&:after
+			content: '\f101'
+			font-family: FontAwesome
+			position: absolute
+			right: em(50)
+			top: 31%
+			font-size: em(20)
+			@include mq($until: tablet)
+				top: 32%
+				right: em(20)
+				
+
+.poll-headline
+	font-family: 'Roboto', sans-serif
+	font-size: em(24)
+	font-weight: 500
+	margin: em(5)
+	padding: 0
+	@include mq($until: tablet)
+		font-size: em(20)
+
+// grid style of display poll items
+.list-grid
+	margin-left: -15px
+	margin-right: -15px
+	border-radius: em(5)
+	display: flex
+	justify-content: flex-start
+	flex-flow: row wrap
+	&:div:nth-child(2n)
+		background: white
+
+.title-grid
+	width: calc((100vw / 5) - 2px)
+	min-height: calc((100vw / 5) - 2px)
+	height: calc((100vw / 5) - 2px)
+	background: rgba(210,244,225,0.5)
+	padding: em(20)
+	text-align: center
+	transition: 400ms
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap
+	flex-flow: column
+	&:hover
+		background: white
+		color: $theme-grey
+	.poll-title
+		font-family: 'Montserrat', sans-serif
+		font-size: em(20)
+		font-weight: 500
+	&:nth-child(2n)
+		background: white
+		color: red
+
+.go-grid
+	padding: em(20)
+	
+.polls
+	a
+		&:hover
+			color: $theme-grey
+
+//
+// Create Poll
+//
+
+.create
+	max-width: $max-width
+	width: 80%
+	min-width: 80%
+	margin: 0 auto
+	@include mq($until: tablet)
+		min-width: 100%
+	
+#create-form
+	margin: em(15) 0
+
+.add-btn
+	@extend .app-btn
+	display: inline-block
+	background: #61be1a
+	&:hover
+		background: #49b30f
+		color: white
+		cursor: pointer
+
+.badge-danger-form
+	font-family: 'Roboto', sans-serif
+	margin-left: em(10)
+	font-size: em(11)
+	color: $theme-red
+	
+.required-text
+	font-family: 'Roboto', sans-serif
+	font-size: em(11)
+	color: $theme-red
+	
+.second-choice
+	margin-bottom: 1em
+	
+
+//
+// Poll Details
+//
+
+.polls-details
+	padding: em(15) em(15)
+
+.pie-chart
+	padding: em(15)
+	
+#chart
+	position: relative
+	width: 100%
+	max-width: em(620)
+	margin: 0 auto
+
+#social
+	padding: 0
+
+.twitter-btn
+	@extend .app-btn
+	background: #00aced
+	&:hover
+		background: #1dcaff
+		color: white
+
+select
+	margin-bottom: em(16)
+
+#new-option
+	margin-bottom: em(16)
+
+#add-option
+	margin-left: em(8)
+	margin-bottom: em(16)
+	
+//
+// Login Page
+//
+
+.login-title
+	@extend .highlight-title
+	font-size: em(24)
+	text-align: center
+	margin: em(15) 0
+	
+#login-btn
+	margin: 0 auto
+	
+//
+// Footer
+//
+
+.footer
+	font-family: 'Source Sans Pro', sans-serif
+	padding: em(10)
+	margin-top: auto
+	font-size: em(12)
+	text-align: right
+	background: white
+	width: 100%
+	
+.display
+	display: none !important
+

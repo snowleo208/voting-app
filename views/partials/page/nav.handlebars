@@ -1,0 +1,25 @@
+<div class="nav-grid" id="menu-mobile">
+	<div class="brand-logo mr-auto">
+		<a href="/"><img src="/public/img/logo_xs_new.png" alt="YouVote"></a>
+	</div>
+	<nav>
+	{{#if req.user.github.username}}
+		<p id="welcome-text">Welcome, {{req.user.github.username}}!</p>
+	{{/if}}
+			<ul class="nav-list">
+				<a href="/poll" class="menu"><li class="nav-item">All Polls</li></a>
+				{{#if req.user.github.username}}
+				<a href="/my-poll" class="menu"><li class="nav-item">My Poll</li></a>
+				<a href="/poll/new" class="menu"><li class="nav-item">Create Polls</li></a>
+				{{/if}}
+				{{#if req.user.github.username}}
+				<a href="/logout" class="menu"><li class="nav-item" id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</li></a>
+				{{else}}
+				<a href="/auth/github" class="menu"><li class="nav-item" id="login"><i class="fa fa-github" aria-hidden="true"></i> Login</li></a>
+				{{/if}}
+			</ul>
+	</nav>
+	
+</div>
+
+<script type="text/javascript" src="/common/nav.js"></script>

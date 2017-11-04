@@ -1,0 +1,38 @@
+<div class="tag-grid d-flex justify-content-center">
+		<div class="badge-tag">
+		<p class="latest-title">Details</p>
+		</div>
+	</div>
+
+<div class="polls-details" id="polls-details">
+	<div class="row">
+			<div class="col-xs-12 col-lg-6" id="detail">
+				<div class="poll-title"><h1 id="poll-title">Polls</h1></div>
+				<div id="top">Loading...</div>
+				<form action="post" id="poll-form" name="poll-form">
+				<div class="options" id="option-grid">
+				</div>
+				<div class="add-options hidden" id="new-option-grid">
+
+						 <div class="form-inline">
+							<input type="text" class="form-control" name="new_option" id="new-option" placeholder="Enter new option">
+							<button type="submit" class="btn btn-primary" id="add-option">Add</button>
+						  </div>
+
+				</div>
+				<button type="submit" class="btn add-btn" id="submit-poll"><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</button>
+				</form>
+				
+				{{#if req.user.github.username}}
+				<a id="social" href="#" target="_blank"><span class="btn twitter-btn"><i class="fa fa-twitter" aria-hidden="true"></i> Share this poll</span></a><br />
+				{{/if}}
+				<a href="/poll/"><span class="btn app-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to all polls</span></a>
+			</div>
+			<div class="col-xs-12 col-lg-6 pie-chart">
+				<canvas id="chart"></canvas>
+			</div>
+		</div>
+</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="/common/palette.js"></script>
+    <script type="text/javascript" src="/common/show-poll.js"></script>

@@ -1,0 +1,38 @@
+<div class="bg-grid-createpoll"></div>
+
+<div class="create">
+	<div class="tag-grid d-flex justify-content-center">
+		<div class="badge-tag">
+		<p class="latest-title">Create Poll</p>
+	</div>
+	</div>
+	
+		<form id="create-form" name="create-form">
+			<span class="required-text float-right">(* All are required)</span>
+			  <div class="form-group">
+				<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-align-center" aria-hidden="true"></i></i></div>
+				<input type="text" class="form-control choice" name="name" id="name" placeholder="Poll Name" required>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
+				<input type="text" class="form-control choice" name="1" id="1" placeholder="Option 1" required>
+				</div>
+			  </div>
+			  <div id="last-option">
+				  <div class='form-group'>
+					<div class="input-group">
+					<div class="input-group-addon"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
+					<input type="text" class="form-control choice second-choice" name="2" id="2" placeholder="Option 2" required>
+					</div>
+				</div>
+			  </div>
+				
+			  <span id="add" class="btn app-btn"><i class="fa fa-plus" aria-hidden="true"></i> Add Options</span>
+			  <button id="submit" type="submit" class="btn add-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</button>
+		</form>
+</div>
+
+ <script type="text/javascript" src="/common/create-form.js"></script>

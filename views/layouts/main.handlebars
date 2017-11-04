@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Roboto+Slab|Source+Sans+Pro|Zilla+Slab" rel="stylesheet">
+	<link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+
+	<!--{{#if islogin}}
+	{{> page/nav_login}}
+	{{else}}-->
+	{{> page/nav}}
+	<!--{{/if}}-->
+	<span class="btn toggle-button" id="toggle-btn"><i class="fa fa-bars" aria-hidden="true"></i> YouVote</span>
+
+	<div class="container-fluid"  id="panel">
+		
+    {{{body}}}
+    {{> page/footer}}
+    </div>
+    
+    </script>
+</body>
+</html>
