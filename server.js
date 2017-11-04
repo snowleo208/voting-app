@@ -15,7 +15,7 @@ require('./app/config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
-mongoose.set('debug', true);
+mongoose.set('debug', false);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
