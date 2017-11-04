@@ -70,15 +70,12 @@ module.exports = function (app, passport) {
 		//voted for poll
 		
 		const voteId = req.body.id;
-		const userIp = req.headers['x-forwarded-for'].split(',').shift();
-		//const userIp = '34.32.222.12';
-		const user = function() {
-			if(req.isAuthenticated()) {
-				return req.user.github.username;
-				} else {
-					return "Guest";
-				}
-			});
+		//const userIp = req.headers['x-forwarded-for'].split(',').shift();
+		const userIp = '34.32.222.12';
+		const user = '';
+		if(req.isAuthenticated()) {
+			user = req.user.github.username;
+		}
 		//const user = req.user.github.username || 'Guest';
 		//const user = "test";
 		const pollId = req.params.id;
