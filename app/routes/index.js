@@ -136,6 +136,36 @@ module.exports = function (app, passport) {
 				res.json(final.id);
 			});
          });
+
+	app.route('/poll/remove/:id').post(function (req, res) {
+		//remove poll
+		var user = '';
+		if(req.isAuthenticated()) {
+			user = req.user.github.username;
+		}
+		const pollId = req.params.id;
+		console.log(pollId);
+
+		Poll.find({
+			  $and: [ {"author": user},
+			  {"_id": pollId},
+			  ]
+		  }, function (err, results) {
+			  console.log(results);
+			  if(err) { return res.status(500).send("Sorry, something goes wrong."); }
+			  if(results) {
+					Poll.findOneAndRemove({"_id": pollId}, function(err, poll) {
+					if (err) {
+						//console.log(err);
+						res.status(500).send("Sorry, something goes wrong.");
+						}
+						//console.log("# Remove polls");
+						//console.log("polls");
+						res.status(200).send('Your poll deleted successfully.');
+					});
+		}
+	});
+	});
 	
 	app.route('/poll/vote/new/:id').post(function (req, res) {
 		//create new options for poll

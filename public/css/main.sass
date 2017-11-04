@@ -356,6 +356,23 @@ a
 	a
 		&:hover
 			color: $theme-grey
+			
+//
+// My Poll
+//
+
+.poll-grid
+	position: relative
+
+.remove-poll
+	position: absolute
+	top: 35%
+	left: em(20)
+	border: 0
+	&:hover
+		background: red
+	@include mq($until: mobile)
+		left: em(-20)
 
 //
 // Create Poll

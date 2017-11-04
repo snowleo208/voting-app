@@ -399,6 +399,20 @@ a {
 .polls a:hover {
   color: #322d27; }
 
+.poll-grid {
+  position: relative; }
+
+.remove-poll {
+  position: absolute;
+  top: 35%;
+  left: 1.25em;
+  border: 0; }
+  .remove-poll:hover {
+    background: red; }
+  @media (max-width: 35.99em) {
+    .remove-poll {
+      left: -1.25em; } }
+
 .create {
   max-width: 50em;
   width: 80%;
