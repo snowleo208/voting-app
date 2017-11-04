@@ -72,11 +72,11 @@ module.exports = function (app, passport) {
 		const voteId = req.body.id;
 		const userIp = req.headers['x-forwarded-for'].split(',').shift();
 		//const userIp = '34.32.222.12';
-		const user = req.user.github.username;
+		const user = req.user.github.username || 'Guest';
 		//const user = "test";
 		const pollId = req.params.id;
 		const voteKey = 'voting.label.'+ req.body.id + '.vote';
-		//console.log(userIp);
+		console.log(user);
 		
 		var inc = {};
 		inc[voteKey] = 1;
