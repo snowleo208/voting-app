@@ -12,7 +12,7 @@ function getData() {
 		} else {
 			errorMsg("", "reset");
 			const result = JSON.parse(event.target.responseText);
-			console.log(event.target.responseText);
+			//console.log(event.target.responseText);
 			createPieChart(result);	
 		}	
     });
@@ -23,7 +23,7 @@ function getData() {
     
     const pollId = window.location.pathname.replace("/poll/","");
     XHR.open("GET", "/poll/find/" + pollId);
-    console.log(pollId);
+    //console.log(pollId);
     XHR.send();
 }
 
@@ -61,10 +61,10 @@ function sendData() {
 		document.getElementById("options").addEventListener("click", function(event){
 			//add event listener for clicked "add new option"
 			if(document.getElementById('options').value =="add") {
-				console.log('add');
+				//console.log('add');
 				document.getElementById('new-option-grid').classList.remove('hidden');
 			} else {
-				console.log("new");
+				//console.log("new");
 				document.getElementById('new-option-grid').classList.add('hidden');
 			}
 		});
@@ -176,10 +176,10 @@ function sendVote(data) {
 	const final = {
 		"id": data
 	}
-	console.log(final);
+	//console.log(final);
     XHR.addEventListener("load", function(event) {
-		//console.log(event.target.responseText);
-		//console.log(JSON.parse(event.target.responseText));
+		////console.log(event.target.responseText);
+		////console.log(JSON.parse(event.target.responseText));
 		if(event.currentTarget.status !== 200) {
 			if(event.currentTarget.responseText) {
 				errorMsg(event.currentTarget.responseText, "error");
@@ -214,7 +214,7 @@ function submitForm(event) {
         alert("Please select your choice first.");
         return false;
     } else {
-		console.log('send data...');
+		//console.log('send data...');
 		sendVote(x);
 	}
 }
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	document.getElementById("add-option").addEventListener("click", function(event){
 		//add event listener for clicked "add" option button
 		event.preventDefault();
-		console.log("submit form");
+		//console.log("submit form");
 		if(document.getElementById('new-option').value == "") {
 			alert('Please input your custom option!');
 		} else { 

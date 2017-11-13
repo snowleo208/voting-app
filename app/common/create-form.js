@@ -4,21 +4,35 @@ function sendData() {
     var poll = document.getElementById('create-form'); //get data from create form
 	form = new FormData(poll);
 	var object = {};
-	
-	form.forEach(function(value, key){
-		console.log(key);
+		
+	for (var key of form.keys()) {
+		console.log(key, poll[key].value);
 		if(key !== "name") {
 			if(!object.label) {
 				object['label'] = [];
-				object['label'].push({"id": key, "name": value});
+				object['label'].push({"id": key, "name": poll[key].value});
 				console.log(object);
 			} else {
-				object['label'].push({"id": key, "name": value});
+				object['label'].push({"id": key, "name": poll[key].value});
 			}
-		} else if (value) {
-			object[key] = value;
+		} else if (poll[key].value) {
+			object[key] = poll[key].value;
 		}
-	});
+	}
+	//~ form.forEach(function(value, key){
+		//~ console.log(key);
+		//~ if(key !== "name") {
+			//~ if(!object.label) {
+				//~ object['label'] = [];
+				//~ object['label'].push({"id": key, "name": value});
+				//~ console.log(object);
+			//~ } else {
+				//~ object['label'].push({"id": key, "name": value});
+			//~ }
+		//~ } else if (value) {
+			//~ object[key] = value;
+		//~ }
+	//~ });
     console.log(object);
 	
     XHR.addEventListener("load", function(event) {
