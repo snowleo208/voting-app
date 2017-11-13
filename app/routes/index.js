@@ -80,7 +80,7 @@ module.exports = function (app, passport) {
 		//const user = "test";
 		const pollId = req.params.id;
 		const voteKey = 'voting.label.'+ req.body.id + '.vote';
-		console.log(user);
+		//console.log(user);
 		
 		var inc = {};
 		inc[voteKey] = 1;
@@ -127,7 +127,7 @@ module.exports = function (app, passport) {
 			//create new poll
 			var user = req.user.github.username;
 			var name = req.body.label;
-			console.log(name);
+			//console.log(name);
 			var poll = new Poll({voting: { name : req.body.name, label: req.body.label }, author: user });
 			poll.save(function (err, final) {
 			 if (err) { console.log(err); }
@@ -186,7 +186,7 @@ module.exports = function (app, passport) {
 				res.status(500).send();
 				}
 			if(poll) {
-				console.log(typeof poll[0]);
+				//console.log(typeof poll[0]);
 				if(typeof poll[0] !== "undefined") {
 					//same option existed
 					res.status(404).send("Sorry, same option existed.");

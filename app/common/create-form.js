@@ -5,18 +5,20 @@ function sendData() {
 	form = new FormData(poll);
 	var object = {};
 		
-	for (var key of form.keys()) {
-		console.log(key, poll[key].value);
-		if(key !== "name") {
+	for (var i = 0, length = poll.elements.length; i < length; i++) {
+		var item = poll.elements.item(i);
+		if(item.name !== "name") {
 			if(!object.label) {
 				object['label'] = [];
-				object['label'].push({"id": key, "name": poll[key].value});
+				object['label'].push({"id": item.name, "name": item.value});
 				console.log(object);
+			} else if(item.name == "") {
+				continue;
 			} else {
-				object['label'].push({"id": key, "name": poll[key].value});
+				object['label'].push({"id":item.name, "name": item.value});
 			}
-		} else if (poll[key].value) {
-			object[key] = poll[key].value;
+		} else if (item.value) {
+			object[item.name] = item.value;
 		}
 	}
 	//~ form.forEach(function(value, key){
