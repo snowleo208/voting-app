@@ -22,6 +22,7 @@
   "author": "Yuu",
   "license": "MIT",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "chartjs": "^0.3.24",
     "connect-mongo": "^2.0.0",

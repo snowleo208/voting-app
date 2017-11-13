@@ -46,7 +46,7 @@ function validateForm(event) {
         alert("All fields must be filled out");
         return false;
     } else {
-		console.log('send data...');
+		//console.log('send data...');
 		sendData();
 	}
 }
